@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-// Helloコンポーネントを取り込む
-import Hello from "./components/Hello";
+import Name from "./components/Name";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
@@ -10,8 +9,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    {/* Helloコンポーネントに置き換え */}
-    <Hello />
+    <Name />
   </React.StrictMode>
 );
 
