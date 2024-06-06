@@ -7,6 +7,7 @@ import React from "react";
 // を表現するには
 
 const Name = () => {
+  const style = { padding: "16px", backgroundColor: "grey" };
   // onchangeイベントを定義
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
@@ -15,7 +16,8 @@ const Name = () => {
   return (
     // styleはオブジェクトで渡す
     // background-color → backgroundColor
-    <div style={{ padding: "16px", backgroundColor: "grey" }}>
+    // 属性が多くなったらオブジェクト型の変数にして渡せる？ → 渡せる
+    <div style={style}>
       {/* for → htmlFor */}
       <label htmlFor="name">名前</label>
       {/* class → className、onchange → onChange */}
