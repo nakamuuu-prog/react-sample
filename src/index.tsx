@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Counter from "./components/UseStateCounter";
+import Counter from "./components/UseReducerCounter";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
