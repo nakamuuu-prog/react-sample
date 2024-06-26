@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 
 const UPDATE_CYCLE = 1000;
 
@@ -36,7 +36,13 @@ export const Clock = () => {
     };
   }, []);
 
-  useEffect(() => {
+  // useLayoutEffectはDOMが更新された後、描画される前に実行される
+  // useEffect：DOMの更新 => 再描画 => useEffect
+  // useLayoutEffect：DOMの更新 => useLayoutEffect => 再描画
+  // useEffectは描画後にlocalStorageから値を読み込んでからlocaleにセットするため、リロードするたびにチラつくことがある
+  // useLayoutEffectは描画前に値をセットするため、チラつきを抑えることができる
+  // => リロードしてもチラつかないので、あまり効果がわからない。実行されるタイミングだけ押さえておく
+  useLayoutEffect(() => {
     const savedLocale = localStorage.getItem(KEY_LOCALE);
     if (savedLocale !== null) {
       setLocale(getLocaleFromString(savedLocale));
